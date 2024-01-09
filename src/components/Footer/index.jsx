@@ -1,6 +1,7 @@
 import { FooterComponent } from "./Footer.style";
+import { memo } from "react";
 
-function Footer() {
+const Footer = memo(() => {
   return (
     <FooterComponent>
         <div>
@@ -11,6 +12,6 @@ function Footer() {
         </div>
     </FooterComponent>
   )
-}
+});
 
 export default Footer

@@ -1,6 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
+import { memo } from "react";
 
-function StandardModal({ title, message, hideModal }) {
+const StandardModal = memo(({ title, message, hideModal }) => {
     return (
         <Modal
           size="lg"
@@ -20,6 +21,6 @@ function StandardModal({ title, message, hideModal }) {
           </Modal.Footer>
         </Modal>
       );
-}
+});
 
 export default StandardModal;

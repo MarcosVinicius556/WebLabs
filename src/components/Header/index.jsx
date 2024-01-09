@@ -1,7 +1,8 @@
 import { HeaderComponent } from "./Header.style";
 import { SiAlchemy } from "react-icons/si";
+import { memo } from "react";
 
-function Header() {
+const Header = memo(() => {
   return (
     <HeaderComponent>
         <nav>
@@ -9,7 +10,7 @@ function Header() {
             <h1>ISLabs</h1>
         </nav>
     </HeaderComponent>
-  )
-}
+  );
+});
 
 export default Header
