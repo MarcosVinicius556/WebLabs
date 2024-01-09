@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 export const HeaderComponent = styled.header`
-    border: 2px solid black;
     
     width: 100%;
     height: 8%;
