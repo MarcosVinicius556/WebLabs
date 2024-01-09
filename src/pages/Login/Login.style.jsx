@@ -7,6 +7,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     background: url(${loginBack});
     background-size: cover;
@@ -14,7 +15,9 @@ export const Container = styled.div`
     background-repeat: no-repeat;
     backdrop-filter: blur(10px);
 
-    & div{
+`;
+
+export const LoginCard = styled.div`
 
         border-radius: 5px;
         display: flex;
@@ -86,5 +89,23 @@ export const Container = styled.div`
             }
         }
 
-    }
+`;
+
+export const Error = styled.div`
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: bold;
+    background: #e08585ca;
+    width: 50%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-top: 5px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    transition: all .5s;
+    backdrop-filter: blur(5px);
+
 `;

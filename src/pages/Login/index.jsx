@@ -1,27 +1,41 @@
-import { Container } from './Login.style';
+import { Container, Error, LoginCard } from './Login.style';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
  
+const loginSchema = z.object({
+  user: z.string().min(1, 'Digite o seu usuário!'),
+  password: z.string().min(1, 'Digite sua senha!')
+});
+
 function Login() {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = (obj) => {
+    console.log(obj);
   }
+
+  const{register, handleSubmit, formState: {errors} } = useForm({
+      resolver: zodResolver(loginSchema)
+  });
 
   return (
     <Container>
-      <div>
+      <LoginCard>
         <h3>Olá, seja bem vindo!</h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(handleLogin)}>
           <span>
             <label>Usuário</label>
-            <input type="text"/>
+            <input id='user' {...register('user', {required: true})} type="text"/>
           </span>
           <span>
             <label>Senha</label>
-            <input type="password"/>
+            <input id='password' {...register('password', { required: true })} type="password"/>
           </span>
           <input type="submit" value="Entrar" />
         </form>
-      </div>
+      </LoginCard>
+      {errors.user && <Error>{errors.user.message}</Error>}
+      {errors.password && <Error>{errors.password.message}</Error>}
     </Container>
   )
 }
