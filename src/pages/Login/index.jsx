@@ -2,6 +2,8 @@ import { Container, Error, LoginCard } from './Login.style';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router-dom';
+
  
 const loginSchema = z.object({
   user: z.string().min(1, 'Digite o seu usuário!'),
@@ -10,8 +12,11 @@ const loginSchema = z.object({
 
 function Login() {
 
+  const navigate = useNavigate();
+
   const handleLogin = (obj) => {
     console.log(obj);
+    navigate('/home');
   }
 
   const{register, handleSubmit, formState: {errors} } = useForm({
